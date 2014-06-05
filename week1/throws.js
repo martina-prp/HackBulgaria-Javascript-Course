@@ -58,12 +58,56 @@ var groupBy = function(groupingFunction, arr) {
   return result;
 };
 
-//var countBy = function(countingFunction, arr) {
-
-//};
+var countBy = function(countingFunction, arr) {
+  var result = {},
+    key = "";
+  arr.map(function(x) {
+    key = countingFunction(x);
+    if (key in result) {
+      result[key]++;
+    }
+    else {
+      result[key] = 1;
+    }
+  });
+  return result;
+};
 
 var always = function(x) {
   return function() { return x;};
+};
+
+var only = function(type, arr) {
+  return arr.every(function(value) {
+    return typeof value  === type;
+  });
+};
+
+var range = function(from, to) {
+  if (from > to) {
+    throw new TypeError("Invalid arguments!");
+  }
+  if (from === to) {
+    return [from];
+  }
+  else if (from < to) {
+    return [from].concat(range(from + 1, to));
+  }
+};
+
+// return v map ???
+var find = function(predicate, arr) {
+  var result;
+  result = arr.filter(predicate);
+  return result[0];
+};
+
+var without = function(exclude, arr) {
+  return arr.filter(function(x) {
+    return exclude.every(function(y)
+      { return x!== y;
+      });
+    });
 };
 
 exports.f = f;
@@ -72,3 +116,9 @@ exports.concat = concat;
 exports.contains= contains;
 exports.containsAll = containsAll;
 exports.groupBy = groupBy;
+exports.countBy = countBy;
+exports.always = always;
+exports.only = only;
+exports.range = range;
+exports.find = find;
+exports.without = without;
