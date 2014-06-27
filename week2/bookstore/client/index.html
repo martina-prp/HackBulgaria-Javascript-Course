@@ -11,16 +11,27 @@
             <div class="bookstore-table">
             </div>
     </div>
+    <hr />
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Shopping cart:</h1>
+                <div id="books-container">
+                    <button class="btn btn-warning">Remove from cart</button
+                </div>
+                <p>Total number of pages in cart: </p>
+            </div>
+        </div>
+    </div>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/lodash/dist/lodash.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/template" id="single-book-template">
-        <td>
+        <td class="<%= isbn %>">
             <h3><%= title %></h3>
             <img src="<%= image_url %>">
-            <p>Averege rating: <%= average_rating%></p>
-            <p>ISBN: <%= isbn%></p>
+            <p>Averege rating: <%= average_rating %></p>
+            <p>ISBN: <%= isbn %></p>
             <button class="btn btn-info">Read description</button>
             <button class="btn btn-success">Add to Cart</button>
         </td>
