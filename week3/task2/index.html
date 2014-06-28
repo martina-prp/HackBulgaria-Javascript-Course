@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grocery</title>
+</head>
+<body>
+	<div class="fruit-container">
+		<h2>Fruits</h2>
+			<div class="fruit-table">
+			</div>
+	</div>
+	<div class="vegetable-container">
+		<h2>Vegetables</h2>
+			<div class="vegetable-table">
+			</div>
+	</div>
+	<script src="bower_components/lodash/dist/lodash.js"></script>
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="task2.js"></script>
+    <script type="text/template" id="single-table-row">
+    	<tr>
+    		<td><%=name%></td>
+    		<td><img src="<%= image %>"></td>
+    	</tr>
+    </script>
+</body>
+</html>
