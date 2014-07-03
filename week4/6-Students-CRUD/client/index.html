@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Students CRUD</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="main">
+		<button class="btn btn-success btn-lg list-all">List All</button>
+		<form class="create-student">
+			Name <input type="text" id="create-name"><br>
+			Faculty Number <input type="text" id="create-fn"><br>
+			Courses <input type="text" id="create-courses"><br> 
+			<button class="btn btn-success btn-log create">Create Student</button>
+		</form>
+		<div class="operation-message"></div>
+		
+		<div class="students-container">
+		</div>
+	</div>
+
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/handlebars/handlebars.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script id="students-template" type="text/x-handlebars-template">
+    	{{#each students}}
+    	<div class="student-row">
+    		<div class="student-name">{{name}}</div>
+    		<div class="student-fn">{{facultyNumber}}</div>
+    		<div class="student-courses">{{courses}}</div>
+    		<button class="btn update">Update</button>
+    	</div>
+    	{{/each}}
+    </script>
+</body>
+</html>
