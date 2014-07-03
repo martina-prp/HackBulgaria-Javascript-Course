@@ -1,24 +1,39 @@
 'use strict';
 
-var imageSearch, images = [];
+var imageSearch;
 $(document).ready(function() {
   $('.load-image').on('click', function(event) {
     event.preventDefault();
     var string = $('.input-lg').val();
     loadImages(string);
-    console.log(images);
     //google.setOnLoadCallback(function() {loadImages(string); });
   });
 });
 
 function searchComplete() {
-  //console.log(images);
-  //var imgTag = document.getElementById('current-image');
-  //console.log(imgTag);
- //console.log(images.results[0].url);
-  //imgTag.setAttribute('src', images.results[0].url);
-  images = imageSearch.results;
-console.log(images);
+  var count = 0;
+  var imgTag = document.getElementById('current-image');
+  imgTag.setAttribute('src', imageSearch.results[0].url);
+  imgTag.setAttribute('data-current-id', 0);
+
+  $('.right').on('click', function(event) {
+    event.preventDefault();
+    count += 1;
+    if (typeof imageSearch.results[count]!== 'undefined') {
+      imgTag.setAttribute('src', imageSearch.results[count].url);
+      imgTag.setAttribute('data-current-id', count);
+    }
+  });
+
+  $('.left').on('click', function(event) {
+    event.preventDefault();
+    count = imgTag.getAttribute('data-current-id');
+    count -= 1;
+    if (typeof imageSearch.results[count]!== 'undefined') {
+      imgTag.setAttribute('src', imageSearch.results[count].url);
+      imgTag.setAttribute('data-current-id', count);
+    }
+  });
 }
 
 function loadImages(string) {
