@@ -7,11 +7,32 @@
 <body>
 	<div class="main">
 		<button class="btn btn-success btn-lg list-all">List All</button>
-		<form class="create-student">
-			Name <input type="text" id="create-name"><br>
-			Faculty Number <input type="text" id="create-fn"><br>
-			Courses <input type="text" id="create-courses"><br> 
-			<button class="btn btn-success btn-log create">Create Student</button>
+		<form class="form-horizontal create-student" role="form">
+            <div class="form-group>">
+                <label for="create-name" class="col-sm-4 control-label">Name</label>
+                <div class="col-sm-6">
+                    <input type="text" id="create-name" class="form-control" placeholder="Name">
+                </div>
+            </div>
+            <div class="form-group>">
+                <label for="create-fn" class="col-sm-4 control-label">Faculty Number</label>
+                <div class="col-sm-6">
+                    <input type="text" id="create-fn" class="form-control" placeholder="Faculty Number">
+                </div>
+            </div>
+            <div class="form-group>">
+                <label for="create-courses" class="col-sm-4 control-label">Faculty Number</label>
+                <div class="col-sm-6">
+                    <input type="text" id="create-courses" class="form-control" placeholder="Courses">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-6">
+        			<button class="btn btn-success btn-lg create">Create Student</button>
+                    <span> or </span>
+                    <button class="btn btn-success btn-lg update">Update Student</button>
+                </div>
+            </div>
 		</form>
 		<div class="operation-message"></div>
 		
@@ -24,13 +45,19 @@
     <script src="bower_components/handlebars/handlebars.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script id="students-template" type="text/x-handlebars-template">
+        <tr>
+            <td><strong>Name</strong></td>
+            <td><strong>Faculty Number</strong></td>
+            <td><strong>Courses</strong></td>
+        </tr>
     	{{#each students}}
-    	<div class="student-row">
-    		<div class="student-name">{{name}}</div>
-    		<div class="student-fn">{{facultyNumber}}</div>
-    		<div class="student-courses">{{courses}}</div>
-    		<button class="btn update">Update</button>
-    	</div>
+    	<tr class="student-row">
+    		<td class="student-name">{{name}}</td>
+    		<td class="student-fn">{{facultyNumber}}</td>
+    		<td class="student-courses">{{courses}}</td>
+    		<td> <button class="btn btn-primary select-update">Update</button> </td>
+            <td> <button class="btn btn-primary select-delete">Delete</button> </td>
+    	</tr>
     	{{/each}}
     </script>
 </body>
