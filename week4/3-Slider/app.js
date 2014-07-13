@@ -1,5 +1,7 @@
 'use strict';
 
+// Could not find way to load all searched results
+// Will be happry for some hints :)
 var imageSearch;
 $(document).ready(function() {
   $('.load-image').on('click', function(event) {
