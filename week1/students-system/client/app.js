@@ -33,9 +33,6 @@ $(document).ready(function() {
   };
 
   $.getJSON("http://localhost:3000/students", function(students, textStatus) {
-      //console.log(textStatus);
-      //console.log(students);
-
       students.forEach(function(student) {
         var row = ["<tr id=" + student.id +" >",
                   "<td>", student.id, "</td>",
@@ -63,21 +60,19 @@ $(document).ready(function() {
         console.log(generateTable(groupStudents[key]));
         $("#students-system-tables").append(generateTable(groupStudents[key]));
       });
-
-//console.log("test1");
-//console.log(groupStudents);
     });
-
   });
 
   $("#search-btn").on("click", function() {
+    $('.table tr').removeAttr('class');
     var searched = $("#search-box").val();
     $.getJSON("http://localhost:3000/students", function(students, textStatus) {
       var match = students.filter(function(student) {
-        return student.name.search(searched) !== -1;
+        return student.name.search(new RegExp(searched, "i")) !== -1;
       });
-      //$('tr#' + match.id).addClass('label');
-      console.log(match.id);
+      match.map(function(item) {
+        $('tr#' + item.id).addClass('success');
+      })
     });
   });
 });
