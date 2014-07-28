@@ -1,0 +1,23 @@
+{
+  "name": "Matrix Calculator",
+  "version": "0.0.0",
+  "homepage": "https://github.com/martina-prp/HackBulgaria-Javascript-Course",
+  "authors": [
+    "Martina Radeva"
+  ],
+  "description": "https://github.com/HackBulgaria/Frontend-JavaScript-1/tree/master/week7/1-Enter-The-Matrix",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "requirejs": "~2.1.14",
+    "bootstrap": "~3.2.0"
+  }
+}
