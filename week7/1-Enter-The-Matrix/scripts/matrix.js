@@ -1,6 +1,13 @@
 define(function() {
   function Matrix(n, m) {
     var matrix = [];
+    for (var i = 0; i < n; i++) {
+      var row = [];
+      for (var j = 0; j < m; j++) {
+        row.push(1);
+      }
+      matrix.push(row);
+    }
 
     this.getN = function() {
       return n;
@@ -24,10 +31,16 @@ define(function() {
     }
 
     this.getCol = function(index) {
+    var result = [];
       if (matrix.length !== 0) {
-        return matrix.filter(function(element) {
-          return element[index];
-        })
+        matrix.forEach(function(element) {
+          element.forEach(function(el, key) {
+            if (index === key) {
+              result.push(el);
+            }
+          });
+        });
+        return result;
       }
       else {
         return 'The matrix is empty';
@@ -41,11 +54,21 @@ define(function() {
       }
       else {
         matrix[index] = row;
+        n = matrix.length;
+        m = row.length;
       }
     }
 
     this.setCol = function(index, col) {
       var colL = 0;
+      if (matrix.length === 0 && index === 0) {
+        col.forEach(function(element) {
+          var el = [];
+          el.push(element);
+          matrix.push(el);
+        });
+      }
+
       if (index > m && (index - 1) === m) {
         matrix.forEach(function(element) {
           element.push(col[colL]);

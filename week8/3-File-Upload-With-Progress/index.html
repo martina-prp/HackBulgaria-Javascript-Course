@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grag and Drop Upload</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+		.drop-and-drag {width:600px; height:300px; margin:1em; border:1px solid #aaaaaa;}
+	</style>
+</head>
+<body>
+	<div class="drop-and-drag" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script data-main="scripts/app" src="bower_components/requirejs/require.js"></script>
+</body>
+</html>
