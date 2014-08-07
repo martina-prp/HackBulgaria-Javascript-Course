@@ -1,8 +1,4 @@
 "use strict";
-// asinhronno, ne e  - programata NE spira!
-// kogato se zaredi celiq dokument, togava se izpylnqva funkciqta;
-// ready e funkciq ot po visok red, za6toto podavame funkciq kato argument;
-// funkciite, koito se podavat se narichat callback-i
 $(document).ready(function() {
   //alert("Hooray, everything runs ok. You can remove this annoying alert from the code.");
 
