@@ -10,13 +10,8 @@
         <h1>Move selected items from the first list to the second list</h1>
         <div class="row">
             <div class="col-xs-4">
-                <select size="10" multiple class="form-control">
-                    <option>Item 1</option>
-                    <option>Item 1</option>
-                    <option>Item 1</option>
-                    <option>Item 1</option>
-                    <option>Item 1</option>
-                    <option>Item 1</option>
+                <select size="10" multiple class="form-control first-select">
+                    
                 </select>
             </div>
             <div class="col-xs-1 buttons">
@@ -29,7 +24,7 @@
                 </div>
             </div>
             <div class="col-xs-4">
-                <select multiple size="10" class="form-control">
+                <select multiple size="10" class="form-control second-select">
 
                 </select>
             </div>
@@ -37,5 +32,12 @@
     </div>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/handlebars/handlebars.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script id="select-template" type="text/x-handlebars-template">
+        {{#each students}}
+            <option value="{{name}}">{{name}}</option>
+        {{/each}}
+    </script>
 </body>
 </html>

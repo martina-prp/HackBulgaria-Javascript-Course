@@ -9,8 +9,19 @@
 		Number of rows: <input type="text" class="matrix-rows">
 		Number of columns: <input type="text" class="matrix-cols">
 		<button class="create-matrix-ui">Submit dimensions</button>
+		<div class="first-matrix">
+		</div>
 	</div>
 
 	<script data-main="scripts/app" src="bower_components/requirejs/require.js"></script>
+	<script id="matrix-template" type="text/x-handlebars-template">script>
+		{{#each rows}} 
+			<div class="form-group matrix-row">
+				{{#each this}}
+					<input type="number" class="matrix-number">
+					</input>
+				{{/each}}
+			</div>
+		{{/each}}
 </body>
 </html>
